@@ -30,11 +30,20 @@ class Categories extends Model
     	return $data;
     }
 
-    // public function GetAllDataCategoriesById($id)
-    // {
-    //     $data = DB::table('categories')->where('parent_id','=',$id)->get()
-    //     $data = Categories::where('parent_id',$id);
-    //     return $data;
-    // }
+    public function GetAllIdCategoriesByIdParent($id)
+    {
+        // $data = DB::table('categories')
+        //         ->select('id')
+        //         ->where('id_parent','=',$id)->get();
+        $data = Categories::select('id')->where('id_parent',$id)->get()->toArray();
+        return $data;
+    }
+
+    public function GetAllIdCategoriesById($id)
+    {
+        $data = Categories::find($id);
+        return $data;
+    }
+   
 
 }

@@ -30,6 +30,44 @@
 	span.cost{
 		text-decoration: line-through;
 	}
+	a.link-a{
+			color: #a9abad;
+			text-decoration: none;
+		}
+		a.link-a:hover{
+			color:#2ae50d;
+		}
+	@media(min-width: 360px) and (max-width: 480px){
+	
+		.mg-t{
+			margin-top: 15px;
+		}
+		.label-contact{
+			color: red;
+			width: 50%;
+		}
+		.product-as span{
+			top: 75%;
+			width: 40%;
+			left: 63%;
+		}
+	}
+	@media(min-width: 481px) and (max-width: 767px){
+	
+		.mg-t{
+			margin-top: 15px;
+		}
+		.label-contact{
+			color: red;
+			width: 50%;
+		}
+		.product-as span{
+			top: 75%;
+			width: 25%;
+			left: 75%;
+		}
+		
+	}
 	</style>
 @endsection
 @section('content')
@@ -46,15 +84,23 @@
 						 <a href="#" class="text-secondary">Quần âu</a> >>
 						
 					</div> --}}
+					<div class="row pt-2 pl-3 pb-3 link-li">
+						<a href="{{route('home')}}" class="link-a"> Trang chủ / </a>
+						@foreach($namePrCate as $nPcate)
+							<a href="{{route('allProduct',['id'=>$nPcate->id])}}" class="link-a"> {{$nPcate->name_parent_categories}} / </a>
+						@endforeach
+						<a href="{{route('cateProduct',['id'=>$namecate['id']])}}" class="link-a"> {{$namecate['name_categories']}}/ </a>
 
-					<div class="row">
-						<div class="col-md-6 col-6 col-lg-6 col-xl-6">
+						<a href="{{route('detail',['id'=>$info['id']])}}" class="link-a">{{$info['name']}}</a>
+					</div>
+					<div class="row ">
+						<div class="col-md-12 col-12 col-lg-6 col-xl-6">
 					        <div class="show" href="{{ URL::to('/') }}/upload/image/{{$infoImage[0]}}">
 					       
 					          	<img src="{{URL::to('')}}/upload/image/{{ $infoImage[0] }}">
 					        </div>
 						      <div class="small-img">
-						        <img src="{{asset('img/online_icon_right@2x.png')}}" class="icon-left" alt="" id="prev-img">x
+						        <img src="{{asset('img/online_icon_right@2x.png')}}" class="icon-left" alt="" id="prev-img">
 						        <div class="small-container">
 							          <div id="small-img-roll">
 							          	@foreach($infoImage as $item)
@@ -65,8 +111,8 @@
 						        <img src="{{asset('img/online_icon_right@2x.png')}}" class="icon-right" alt="" id="next-img">
 						      </div>
 						</div>
-						<div class="col-md-6 col-6">
-							<h3>Quần âu</h3>
+						<div class="col-md-12 col-12 mg-t">
+							<h3>{{$info['name']}}</h3>
 							<p class="pt-2">Giá : 
 								<span class="cost pr-4">{{$info['price']}}.000 VNĐ</span>
 								<span>{{ $info['price']-($info['price'] * ($info['sale_off']/100)) }}.000 VNĐ</span></p>
@@ -81,39 +127,44 @@
 								{{$info['description']}}
 							</p>
 							<div class="row">
-							<div class="col-6 col-md-6">
+							<div class="col-12 col-md-6">
 								<p>Màu Sắc :</p>
 								@foreach($color as $key)
-									<label for="color" class="rel-color pr-5"><span class="color pr-2" style="background-color:">
-									</span>{{$key['name_color']}} </label>
-									<input type="radio" id="color" name="{{$key['name_color']}}"  value="{{$key['name_color']}}">
+									<label for="color_{{$key['id']}}" class="rel-color pr-5 label-contact" >
+									<input type="radio" id="color_{{$key['id']}}" name="inlineRadioOptionsColor"  value="{{$key['id']}}">
+									<span class="color pr-2" style="background-color:">{{$key['name_color']}} 
+									</span>
+									</label>
 									<br>
 								@endforeach
 							</div>
-							<div class="col-6 col-md-6">
-								<label for="qty">Số lượng</label>
-								<select name="" id="">
-									@for($i= 0 ; $i < $info['quantity'] ; $i++)
-									<option value="">{{$i}}</option>
+							<div class="col-12 col-md-6">
+								<label for="qty" class="label-contact" >Số lượng</label>
+								<select name="" id="qtyPd">
+									@for($i= 1 ; $i < $info['quantity'] ; $i++)
+									<option value="{{$i}}">{{$i}}</option>
 									@endfor
 								</select>
 							</div>
 							</div>
 
 							<div class="row pb-5">
-								<p class="pl-3 pr-5">Size:</p>
-								<select name="" id="">
-										<option value="1" class="w-100">
-											@foreach($infoSize as $key)
-
-											<option value="1">{{$key}}</option>
-											@endforeach
-										</option>
-								</select>
+								<div class="col-12 col-md-6">
+									<p>Size:</p>
+									@foreach($infoSize as $key)
+										<label for="size_{{$key}}" class="rel-color pr-5 label-contact" >
+										<input type="radio" id="size_{{$key}}" name="inlineRadioOptionsSize"  value="{{$key}}">
+										<span class="color">{{$key}}</span>
+										</label>
+										<br>
+									@endforeach
+								</div>
+								
+							
 							</div>
 							
-							<button class="btn  btn-success mr-5"> ADD CART</button>	
-							<a class="btn btn-danger text-white">BUY NOW</a>	
+							<button class="btn  btn-success btn-add mr-5">ADD CART</button>	
+							<a href="" class="btn btn-danger text-white">BUY NOW</a>	
 						</div>
 					</div>
 					<div class="row product-as pt-5">
@@ -124,7 +175,7 @@
 						<div class="container-fluid">
 							<div class="row">
 								@foreach($infoToo as $key =>$item)
-									<div class="col-12 col-md-3 col-sm-5 sha-dow">
+									<div class="col-12 col-sm-4 sha-dow">
 										<div class="product-size">
 											<div class="img-product">
 												<a href="{{route('detail',['id' => $item['id']])}}">
@@ -133,14 +184,14 @@
 												<span>{{$item['sale_off']}}%</span>
 											</div>
 											<div class="profile-product">
-												<a href="#">
+												<a href="{{route('detail',['id' => $item['id']])}}">
 													<p class="text-center"> {{$item['name']}}</p>
 												</a>
 
 												<p class="text-center profile-product-p" >{{$item['price']}}.000 VNĐ</p>
 											</div>
 											<div class="go-to-product">
-												<a href="#">
+												<a href="{{route('detail',['id' => $item['id']])}}">
 													<i class="fa fa-shopping-cart"></i>
 												</a>
 											</div>
@@ -154,16 +205,58 @@
 			</section>
 		<script type="text/javascript">
 
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-36251023-1']);
-	  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-	  _gaq.push(['_trackPageview']);
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-36251023-1']);
+		  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+		  _gaq.push(['_trackPageview']);
 
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
 
 	</script>
 @endsection
+
+@push('js')
+	<script type="text/javascript">
+		$.ajaxSetup({
+		    headers: {
+			        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			    }
+		});
+		$('.btn-add').click(function(){
+			let self = $(this);
+	  		let IdPd = "{{$info['id']}}";
+	  		let qty = $('#qtyPd').val();
+	  		let idColor  = $('input[name="inlineRadioOptionsColor"]:checked').next().text().trim();
+	  		let idSize  = $('input[name="inlineRadioOptionsSize"]:checked').next().text().trim();
+	  		alert(idSize);
+	  		alert(idColor);
+	  		if($.isNumeric(IdPd)){
+	  			$.ajax({
+	  				headers: {
+				          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					},
+	  				url: "{{ route('Cart') }}",
+	  				type: "POST" ,
+	  				data:{id:IdPd,qty:qty,color:idColor,size:idSize},
+	  				beforeSend:function(){
+	  					self.text('Adding To Cart ...');
+	  				},
+	  				success: function(result){
+						self.text('ADD SUCCESS');
+						result = $.trim(result);
+						if(result === 'OK') {
+							alert('add cart successful');
+						} else {
+							alert('can not add cart');
+						}
+					}
+	  			})
+	  		}
+		});
+	</script>
+	<script type="text/javascript" src="{{asset('js/scroll.js')}}"></script>
+@endpush

@@ -25,15 +25,10 @@ class ParentCategories extends Model
         $info = ParentCategories::all();
         return $info;
     }
-    public function NameParentProduct($id)
+    public function NameParentXX($id)
     {
-        $info = ParentCategories::select('name_parent_categories')->where('id',$id)->first();
+        $info = DB::table('parentcategories')->select('*')->where('id',$id)->get();
         return $info;
-    }
-    public function GetAllDataCategoriesById($id)
-    {
-        $data = ParentCategories::find($id)->product;
-        return $data;
     }
 
 }

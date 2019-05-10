@@ -1,18 +1,30 @@
 @extends('front-end.base')
-
+@section('style')
+	<style type="text/css">
+		a.link-a{
+			color: #a9abad;
+			text-decoration: none;
+		}
+		a.link-a:hover{
+			color:#2ae50d;
+		}
+		@media(min-width: 360px) and (max-width: 480px){
+			h3{
+				text-align: center;
+			}
+		}
+	</style>
+@endsection
 @section('content')
 	<section class="content pb-5">
 				<div class="container">
-					<div class="row pb-4">
-						<span>
-							<a href="{{route('home')}}" class="text-secondary">Trang chủ /</a>
-							
-							<a href="{{route('introduce')}}" class="text-secondary">Giới thiệu</a>
-						</span>
+					<div class="row pt-4 pl-3 pb-3 link-li">
+						<a href="{{route('home')}}" class="link-a"> Trang chủ / </a>
+						<a href="{{route('introduce')}}" class="link-a"> Giới thiệu</a>
 					</div>
 
 
-					<div class="row">
+					<div class="row pt-4">
 						<h3>Giới Thiệu về ThanhBinhShop</h3>
 						<p>Công ty thời trang ThanhBinhShop được thành lập từ tháng 3 năm 2010, là một trong những thương hiệu thời trang nam uy tín hàng đầu Việt Nam. Với sự quản lý chặt chẽ, chuyên nghiệp của đội ngũ quản lý; Nỗ lực sáng tạo không ngừng của bộ phận thiết kế, Sự tận tâm của nhân viên bán hàng… là những yếu tố làm nên thương hiệu thời trang ThanhBinhShop lớn mạnh như hiện nay.
  

@@ -1,13 +1,22 @@
 @extends('front-end.base')
-
+@section('style')
+	<style>
+		.hiddenUl{
+			display: block !important;
+		}
+		.i-hidden{
+			display: none;
+		}
+	</style>
+@endsection
 @section('content')
 <!-- Content -->
 	<section class="content">
 		<div class="container">
 					<div class="row slide">
-						<div class="col-12 col-md-12 col-lg-4" >
+						<div class="col-12 col-sm-12 col-md-12 col-lg-4 mobile-none tablet-none" >
 						</div>
-						<div class="col-12 col-md-12 col-lg-8 content-slide">
+						<div class="col-12 col-sm-12 col-md-12 col-lg-8 content-slide">
 							<div class="cacslide" >
 								<ul>
 									<li class="kichhoat">
@@ -77,7 +86,7 @@
 								</li>
 							</ul>
 						</div>
-						<div class="col-12  col-md-8 option-content-right res-mb-none">
+						<div class="col-12  col-md-8 option-content-right res-mb-none mobile-none smart-phone-none">
 							<ul>
 								<li>
 									Sắp xếp
@@ -104,7 +113,7 @@
 						<div class="container-fluid">
 							<div class="row">
 								@foreach($productNew as $key =>$item)
-									<div class="col-12 col-md-3 col-sm-5 sha-dow">
+									<div class="col-12 col-sm-4 col-sm-p sha-dow">
 										<div class="product-size">
 											<div class="img-product">
 												<a href="{{route('detail',['id' => $item['id']])}}"><img src="upload/image/{{$item['url_image'][0]}}" alt=""></a>
@@ -144,7 +153,7 @@
 						<div class="container-fluid">
 							<div class="row">
 									@foreach($productHot as $key =>$item)
-									<div class="col-12 col-md-3 col-sm-5 sha-dow">
+									<div class="col-12  col-sm-4 sha-dow">
 										<div class="product-size">
 											<div class="img-product">
 												<a href="#"><img src="upload/image/{{$item['url_image'][0]}}" alt=""></a>
@@ -159,7 +168,7 @@
 											</div>
 											<div class="go-to-product">
 												<a href="#">
-													<i class="fa fa-shopping-cart"></i>
+													<i class="fa fa-shopping-cart icon-show-cart"></i>
 												</a>
 											</div>
 										</div>
@@ -235,24 +244,9 @@
     };
 },false);
 
-// document.addEventListener("DOMContentLoaded",function(){
-//     var optionMain =  document.getElementById('click-not-none');
-//     console.log(optionMain);
-//     var slectNone = document.querySelectorAll('.click-li');
-//     console.log(slectNone);
-//     optionMain.onclick=function(){
-//         for(var i= 0 ; i<slectNone.length;i++){
-//             // slectNone[i].classList.remove('li-none')
-//             slectNone[i].classList.toggle('border-li');
-//         }
-//     };
-
-//     var optionProduct = document.getElementById('click-product');
-//     var productNone = document.getElementsByClassName('content-menu');
-//      console.log(productNone);
-//     optionProduct.onclick=function(){
-//         productNone[0].classList.toggle('product-not-none');
-//     }
-// },false)
 </script>
 @endsection
+
+@push('js')
+	<script type="text/javascript" src="{{asset('js/scroll.js')}}"></script>
+@endpush

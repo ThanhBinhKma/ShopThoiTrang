@@ -29,7 +29,9 @@
           <th scope="col">Quanty</th>
           
           <th scope="col">Sale Off</th>
-          <th scope="col"><a href="{{route('admin.AddProduct')}}" class="btn btn-danger">ADD</a></th>
+          <th scope="col">New</th>
+          <th scope="col">HighLight</th>
+          <th scope="col" ><a href="{{route('admin.AddProduct')}}" class="btn btn-danger">ADD</a></th>
 
         </tr>
     </thead>
@@ -72,7 +74,9 @@
           <td>{{$item['price']}}</td>
           <td>{{$item['quantity']}}</td>
           <td>{{$item['sale_off']}}</td>
-
+          <td>{{$item['new']}}</td>
+          <td>{{$item['highlight']}}</td>
+          
           <td>
             <button class="btn btn-danger btn-delete" id="{{ $item['id'] }}">Delete</button>
           </td>

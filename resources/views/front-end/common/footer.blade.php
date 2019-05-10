@@ -2,7 +2,7 @@
 				<div class="container">
 					<div class="row footer-tren">
 						 <div class="col-12 col-md-6">
-						 	<h3>Hotline : 0972365339</h3>
+						 	<h3 class="phone-none smart-phone-none">Hotline : 0972365339</h3>
 						 </div>
 						 <div class="col-12 col-md-6">
 						 	<ul>

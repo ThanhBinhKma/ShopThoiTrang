@@ -156,10 +156,10 @@
 
 						<textarea class="pl-5" name="description"></textarea>
 					</div>
-				    <div class="form-group col-md-6 pl-5 ">
+				    <div class="form-group col-md-4 pl-5 ">
 				      	<h4 class="pl-4 text-danger">Status</h4>
 				      	<div class="form-check">
-						  <input class="form-check-input" type="radio" name="status" id="status_1" value="1" checked>
+						  <input class="form-check-input" type="radio" name="status" id="status_1" value="1">
 						  <label class="form-check-label" for="status_1">
 						    1
 						  </label>
@@ -174,7 +174,41 @@
 						</div>
 				    </div>
 				  
-				  
+				  	<div class="form-group col-md-4 pl-5 ">
+				      	<h4 class="text-danger">New</h4>
+				      	<div class="form-check">
+						  <input class="form-check-input" type="radio" name="new" id="new_1" value="1"> 
+						  <label class="form-check-label" for="new_1">
+						    1
+						  </label>
+						</div>
+
+
+						<div class="form-check">
+							  <input class="form-check-input" type="radio" name="new" id="new_2" value="0">
+							  <label class="form-check-label" for="new_2">
+							    0
+							  </label>
+						</div>
+				    </div>
+
+				    <div class="form-group col-md-4 pl-5 ">
+				      	<h4 class="text-danger">Highlight</h4>
+				      	<div class="form-check">
+						  <input class="form-check-input" type="radio" name="highlight" id="highlight_1" value="1">
+						  <label class="form-check-label" for="highlight_1">
+						    1
+						  </label>
+						</div>
+
+
+						<div class="form-check">
+							  <input class="form-check-input" type="radio" name="highlight" id="highlight_2" value="0">
+							  <label class="form-check-label" for="highlight_2">
+							    0
+							  </label>
+						</div>
+				    </div>
 				</div>
 			<div class="col-12 ">
 				<button type="submit" class="btn btn-danger btn-add btn-block">ADD</button>

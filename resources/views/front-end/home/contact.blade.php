@@ -1,18 +1,27 @@
 @extends('front-end.base')
+@section('style')
+	<style type="text/css">
+		a.link-a{
+			color: #a9abad;
+			text-decoration: none;
+		}
+		a.link-a:hover{
+			color:#2ae50d;
+		}
+		.label-contact{
+			color: red;
+		}
+	</style>
+@endsection
 @section('content')
-	<section class="content pb-5">
+	<section class="content pb-5 pt-5">
 				<div class="container">
-					<div class="row pb-4">
-						<span>
-							<a href="{{route('home')}}" class="text-secondary a-none">Trang chủ /</a>
-							
-							<a href="{{route('contact')}}" class="text-secondary a-none">Liên hệ</a>
-						</span>
+					<div class="row pt-2 pl-3 pb-3 link-li">
+						<a href="{{route('home')}}" class="link-a"> Trang chủ / </a>
+						<a href="{{route('contact')}}" class="link-a"> Liên hệ</a>
 					</div>
-
-
 					<div class="row">
-						<div class="col-6 col-md-6">
+						<div class="col-12 col-md-6">
 							<div class="row">
 								<h3 class="text-danger pr-5">Thông Tin Liên Hệ</h3>
 							</div>
@@ -39,37 +48,37 @@
 							</div>
 							<form>
 							  <div class="form-group">
-							    <label for="name">Họ tên:</label>
+							    <label for="name" class="label-contact">Họ tên:</label>
 							    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Họ và tên">
 							  </div>
 							  <div class="form-group">
-							    <label for="exampleInputPassword1">Giới Tính :</label>
+							    <label for="exampleInputPassword1" class="label-contact">Giới Tính :</label>
 							    <br>
-							    <label for="">Nam</label>
+							    <label for="" class="label-contact">Nam</label>
 							    <input type="radio" id="exampleInputPassword1" class="pr-3">
-							    <label for="" class="pl-5">Nữ</label>
+							    <label for="" class="pl-5 label-contact">Nữ</label>
 							    <input type="radio" id="exampleInputPassword1">
 							  </div>
 
 							  <div class="form-group">
-							    <label for="name">Email:</label>
+							    <label for="name" class="label-contact">Email:</label>
 							    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Email">
 							  </div>
 
 							  <div class="form-group">
-							    <label for="name">Số điện thoại:</label>
+							    <label for="name" class="label-contact">Số điện thoại:</label>
 							    <input type="number" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Số điện thoại:">
 							  </div>
 
 							  <div class="form-group">
-							    <label for="name">Thông Điệp :</label>
+							    <label for="name" class="label-contact">Thông Điệp :</label>
 							    <textarea class="form-control"></textarea>
 							  </div>
 							  
 							  <button type="submit" class="btn btn-primary">Send</button>
 							</form>
 						</div>
-						<div class="col-6 col-md-6">
+						<div class="col-12 col-md-6">
 							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.897575164215!2d105.83245601458785!3d21.03678389288093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135aba15ec15d17%3A0x620e85c2cfe14d4c!2zTMSDbmcgQ2jhu6cgVOG7i2NoIEjhu5MgQ2jDrSBNaW5o!5e0!3m2!1svi!2s!4v1556867764531!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 						</div>
 					</div>

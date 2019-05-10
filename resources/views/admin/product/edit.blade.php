@@ -205,10 +205,10 @@
 							<img src="{{ URL::to('/') }}/upload/image/{{ $item }}" alt="" class="height-img">
 						@endforeach
 					</div>
-				    <div class="form-group col-md-6 pl-5 ">
+				    <div class="form-group col-md-4 pl-5 ">
 				      	<h4 class="text-danger">Status</h4>
 				      	<div class="form-check">
-						  <input class="form-check-input" type="radio" name="status" id="status_1" value="1" checked>
+						  <input class="form-check-input" type="radio" name="status" id="status_1" value="1" {{($info['status'] = 1) ? 'checked' : ''}}>
 						  <label class="form-check-label" for="status_1">
 						    1
 						  </label>
@@ -216,8 +216,43 @@
 
 
 						<div class="form-check">
-							  <input class="form-check-input" type="radio" name="status" id="status_2" value="0" >
+							  <input class="form-check-input" type="radio" name="status" id="status_2" value="0" {{($info['status'] === 0) ? 'checked' : ''}}>
 							  <label class="form-check-label" for="status_2">
+							    0
+							  </label>
+						</div>
+				    </div>
+				    <div class="form-group col-md-4 pl-5 ">
+				      	<h4 class="text-danger">New</h4>
+				      	<div class="form-check">
+						  <input class="form-check-input" type="radio" name="new" id="new_1" value="1" {{($info['new'] === 1) ? 'checked' : ''}}> 
+						  <label class="form-check-label" for="new_1">
+						    1
+						  </label>
+						</div>
+
+
+						<div class="form-check">
+							  <input class="form-check-input" type="radio" name="new" id="new_2" value="0" {{($info['new'] === 0) ? 'checked' : ''}} >
+							  <label class="form-check-label" for="new_2">
+							    0
+							  </label>
+						</div>
+				    </div>
+
+				    <div class="form-group col-md-4 pl-5 ">
+				      	<h4 class="text-danger">Highlight</h4>
+				      	<div class="form-check">
+						  <input class="form-check-input" type="radio" name="highlight" id="highlight_1" value="1" {{($info['highlight'] === 1) ? 'checked' : ''}}>
+						  <label class="form-check-label" for="highlight_1">
+						    1
+						  </label>
+						</div>
+
+
+						<div class="form-check">
+							  <input class="form-check-input" type="radio" name="highlight" id="highlight_2" value="0" {{($info['highlight'] === 0) ? 'checked' : ''}} >
+							  <label class="form-check-label" for="highlight_2">
 							    0
 							  </label>
 						</div>

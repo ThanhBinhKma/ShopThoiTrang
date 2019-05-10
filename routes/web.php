@@ -51,6 +51,9 @@ Route::group([
 	Route::get('add-color','ColorController@add')->name('addColor');
 	Route::post('handle-add-color','ColorController@handleAdd')->name('handleEdit');
 	Route::post('delete-color','ColorController@delete')->name('deleteColor');
+
+	/********* Bill *************/
+	Route::get('bill','BillController@index')->name('bill');
 });
 
 /*************************** Front-end ***********************************/
@@ -65,6 +68,28 @@ Route::group([
 	Route::get('lien-he','HomeController@contact')->name('contact');
 	Route::get('gioi-thieu','HomeController@introduce')->name('introduce');
 	Route::get('chi-tiet-san-pham/{id}','HomeController@detail')->name('detail');
+	
+	Route::get('danh-muc-cac-san-pham/{id}','HomeController@allProduct')->name('allProduct');
+
+	Route::get('cac-san-pham/{id}','HomeController@CateProduct')->name('cateProduct');
+
 	Route::get('san-pham','HomeController@product')->name('product');
-	Route::get('cac-san-pham/{id}','HomeController@allProduct')->name('allProduct');
+	/******************** Cart *********************/
+
+});
+
+Route::group([
+	'namespace'=>'FrontEnd'
+],function(){
+	Route::POST('cart','CartController@cart')->name('Cart');
+	Route::get('show-cart','CartController@showCart')->name('showCart');
+	Route::POST('delete-cart','CartController@deleteCart')->name('deleteCart');
+	Route::POST('update-cart','CartController@updateCart')->name('updateCart');
+});
+
+Route::group([
+	'namespace'=>'FrontEnd'
+],function(){
+	Route::get('payment','PaymentController@index')->name('payment');
+	Route::post('payment-order','PaymentController@PayOrder')->name('paymentOrder');
 });

@@ -69,6 +69,8 @@ class ProductController extends Controller
        $saleOff = $check->saleOff;
        $status = $check->status;
        $desription=$check->desription;
+       $new = $check->new;
+       $highlight= $check->highlight;
        // $ddd = $check->image;
        // // s
        // dd($size);
@@ -99,12 +101,13 @@ class ProductController extends Controller
                 
                 'categories_id'=>$cate,
                 'size'=>json_encode($size),
+                'new'=>$new,
                 'price'=>$price,
                 'quantity'=>$qty,
                 'sale_off'=>$saleOff,
                 'description'=>$desription,
                 'url_image'=>json_encode($arrNameFile),
-                'highlight'=>0,
+                'highlight'=>$highlight,
                 'status'=>$status,
                 'created_at'=>date('Y-m-d H:i:s'),
                 'updated_at'=>null
@@ -145,7 +148,7 @@ class ProductController extends Controller
     {
     	$id = is_numeric($id) ? $id : 0;
         $infoPd = $pd->GetAllDataProductsById($id);
-        // dd($infoPd['size']);
+        // dd($infoPd );
         if($infoPd){
             $data = [];
 
@@ -183,7 +186,10 @@ class ProductController extends Controller
          $qty = $check->qty;
          $saleOff = $check->saleOff;
          $status = $check->status;
+         $new = $check->new;
+         $highlight = $check->highlight;
          $desription=$check->desription;
+         // dd($highlight);
           $arrNameFile2 = json_decode($data['url_image'],true);
          $arrNameFile = [];
          if($check->hasFile('images')){
@@ -210,12 +216,13 @@ class ProductController extends Controller
                 
                 'categories_id'=>$cate,
                 'size'=>json_encode($size),
+                'new'=>$new,
                 'price'=>$price,
                 'quantity'=>$qty,
                 'sale_off'=>$saleOff,
                 'description'=>$desription,
                 'url_image'=>json_encode($arrNameFile2),
-                'highlight'=>0,
+                'highlight'=>$highlight,
                 'status'=>$status,
                 'created_at'=>date('Y-m-d H:i:s'),
                 'updated_at'=>null

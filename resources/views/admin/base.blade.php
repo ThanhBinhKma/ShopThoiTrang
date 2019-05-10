@@ -99,6 +99,8 @@
 
                     <li class="current-page menu-item-has-children"><a href="{{route('admin.color')}}" class="ripple"><i class="fa fa-bars" aria-hidden="true"></i> <span class="hide-menu">Colors</span></a>
                     </li>
+                    <li class="current-page menu-item-has-children"><a href="{{route('admin.bill')}}" class="ripple"><i class="fa fa-bars" aria-hidden="true"></i> <span class="hide-menu">Bill</span></a>
+                    </li>
                     <li><a href="{{route('admin.logout')}}"><i class="list-icon material-icons">settings_power</i> <span class="hide-menu">Log Out</span></a>
                     </li>
                 </ul>

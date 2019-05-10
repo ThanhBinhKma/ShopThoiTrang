@@ -101,4 +101,26 @@ class Product extends Model
         }
         return $data;
     }
+
+    public function GetAllDataByArrId($arr)
+    {
+        $data = Product::select('*')
+                        ->whereIn('categories_id',$arr)
+                        ->paginate(6);
+        return $data;
+    }
+
+    public function GetAllDataProductsByIdCate($id)
+    {
+        $data = Product::select('*')
+                        ->where('categories_id',$id)
+                        ->paginate(8);
+        return $data;
+    }
+
+    public function GetAll()
+    {
+        $data= Product::select('*')->paginate(8);
+        return $data;
+    }
 }

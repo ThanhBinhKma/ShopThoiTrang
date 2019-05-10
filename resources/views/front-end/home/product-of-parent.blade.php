@@ -8,6 +8,7 @@
 		a.link-a:hover{
 			color:#2ae50d;
 		}
+		
 	</style>
 @endsection
 @section('content')
@@ -15,32 +16,32 @@
 			<div class="container pt-3">
 						<div class="row  pl-3 pb-3 link-li">
 							<a href="{{route('home')}}" class="link-a"> Trang chủ / </a>
-							
-								<a href="{{route('product')}}" class=" link-a">Sản phẩm</a>
-							
+							@foreach($NameParentXX as $nPP)
+								<a href="{{route('allProduct',['id'=>$nPP->id])}}" class=" link-a">{{$nPP->name_parent_categories}}</a>
+							@endforeach
 							
 						</div>
 						<div class="row product-main">
 							<div class="container-fluid">
 								<div class="row">
-										@foreach($product as $pD)
+										@foreach($productInParent as $pIP)
 									
 										<div class="col-12 col-sm-4 sha-dow">
 
 											<div class="product-size">
 												<div class="img-product">
-													<a href="{{route('detail',['id'=>$pD['id']])}}"><img src="{{URL::to('/')}}/upload/image/{{$pD['url_image'][0]}}" alt=""></a>
-													<span>{{$pD['sale_off']}}%</span>
+													<a href="#"><img src="{{URL::to('/')}}/upload/image/{{$pIP['url_image'][0]}}" alt=""></a>
+													<span>{{$pIP['sale_off']}}%</span>
 												</div>
 												<div class="profile-product">
-													<a href="{{route('detail',['id'=>$pD['id']])}}">
-														<p class="text-center">{{$pD['name']}}</p>
+													<a href="#">
+														<p class="text-center">{{$pIP['name']}}</p>
 													</a>
 
-													<p class="text-center profile-product-p" > {{$pD['price']}}.000 VNĐ</p>
+													<p class="text-center profile-product-p" > {{$pIP['price']}}.000 VNĐ</p>
 												</div>
 												<div class="go-to-product">
-													<a href="{{route('detail',['id'=>$pD['id']])}}">
+													<a href="#">
 														<i class="fa fa-shopping-cart"></i>
 													</a>
 												</div>
